@@ -5,8 +5,11 @@ import (
 	"net/http"
 )
 
-func mapUrls(){
-	router.HandleFunc("/items/", controllers.ItemsController.Create).Methods(http.MethodPost)
+func mapUrls() {
+
 	router.HandleFunc("/items/:?items", controllers.ItemsController.Get).Methods(http.MethodGet)
+
 	router.HandleFunc("/ping", controllers.PingController.Ping).Methods(http.MethodGet)
+
+	router.HandleFunc("/items", controllers.ItemsController.Create).Methods(http.MethodPost)
 }
