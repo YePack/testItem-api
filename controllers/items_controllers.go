@@ -30,7 +30,7 @@ func (c *itemsController) Create(w http.ResponseWriter, r *http.Request) {
 	}
 	sellerId := oauth.GetCallerId(r)
 	if sellerId == 0 {
-		restErr := rest_errors.NewUnautorizedError("invalid request body")
+		restErr := rest_errors.NewUnauthorizedError("invalid request body")
 		http_utils.RespondError(w, *restErr)
 		return
 	}
